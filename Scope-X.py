@@ -12,6 +12,7 @@ import platform
 import psutil
 import wmi
 from pyfiglet import Figlet
+os.system('title Scope-X-v1.0')
 def print_welcome_message():
     f = Figlet(font='slant')
     print(f.renderText('Scope-X'))
@@ -78,7 +79,6 @@ def monitor_processes():
                 uptime = datetime.now() - create_time
                 file.write(f"PID: {pid}, Name: {name}, Create Time: {create_time}, File Location: {file_location}, Uptime: {uptime}\n")
         time.sleep(120)
-      
 screenshot_thread = threading.Thread(target=capture_screenshot)
 key_logs_thread = threading.Thread(target=log_key_presses)
 mouse_logs_thread = threading.Thread(target=log_mouse_clicks)
